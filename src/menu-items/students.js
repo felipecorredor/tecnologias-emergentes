@@ -1,27 +1,35 @@
 // assets
-import { TeamOutlined } from '@ant-design/icons';
+import { TeamOutlined, UserAddOutlined } from '@ant-design/icons';
 
 // icons
 const icons = {
-  TeamOutlined
+  TeamOutlined,
+  UserAddOutlined
 };
 
 // ==============================|| MENU ITEMS - UTILITIES ||============================== //
 
-const utilities = {
+const students = {
   id: 'utilities',
   title: 'Navigation',
   type: 'group',
   children: [
     {
-      id: 'util-typography',
+      id: 'students',
       title: 'Students',
       type: 'item',
       url: '/students',
       icon: icons.TeamOutlined,
       breadcrumbs: false
+    },
+    {
+      id: 'student',
+      title: 'Create',
+      type: 'item',
+      url: '/students/create',
+      icon: icons.UserAddOutlined
     }
   ]
 };
 
-export default utilities;
+export default students;
