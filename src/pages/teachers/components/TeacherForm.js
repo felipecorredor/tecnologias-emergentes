@@ -83,6 +83,25 @@ const TeacherForm = ({ teacher, isEdit }) => {
         <Grid container spacing={3}>
           <Grid item xs={6} sm={4} md={6} lg={4}>
             <Typography variant="h5" fontWeight="bold">
+              Subjects
+            </Typography>
+          </Grid>
+          <Grid item xs={6} sm={4} md={6} lg={8}>
+            <Stack spacing={2}>
+              <Select labelId="demo-simple-select-label" defaultValue="T.I" id="demo-simple-select" label="Type Document">
+                <MenuItem value="T.I">Software development</MenuItem>
+                <MenuItem value="I.C">Machine Learning</MenuItem>
+                <MenuItem value="I.C">Mathematics ||</MenuItem>
+              </Select>
+            </Stack>
+          </Grid>
+        </Grid>
+      </MainCard>
+
+      <MainCard>
+        <Grid container spacing={3}>
+          <Grid item xs={6} sm={4} md={6} lg={4}>
+            <Typography variant="h5" fontWeight="bold">
               Teacher
             </Typography>
           </Grid>
