@@ -21,12 +21,12 @@ import MainCard from 'components/MainCard';
 // react-router-dom
 import { Link } from 'react-router-dom';
 
-const Student = {
+const Teacher = {
   name: ''
 };
 
-const StudentForm = ({ student, isEdit }) => {
-  if (!student && isEdit) {
+const TeacherForm = ({ teacher, isEdit }) => {
+  if (!teacher && isEdit) {
     return <LinearProgress />;
   }
 
@@ -41,12 +41,12 @@ const StudentForm = ({ student, isEdit }) => {
           </Grid>
           <Grid item xs={6} sm={4} md={6} lg={8}>
             <Stack spacing={2}>
-              <TextField id="outlined-basic" label="Name" variant="outlined" defaultValue={student.name} />
-              <TextField id="outlined-basic" label="Last Name" variant="outlined" defaultValue={student.lastName} />
-              <TextField id="outlined-basic" label="Email" variant="outlined" defaultValue={student.email} />
-              <TextField id="outlined-basic" label="Phone" variant="outlined" defaultValue={student.phone} />
-              <TextField id="outlined-basic" label="Address" variant="outlined" defaultValue={student.address} />
-              <TextField id="outlined-basic" label="Age" variant="outlined" defaultValue={student.age} />
+              <TextField id="outlined-basic" label="Name" variant="outlined" defaultValue={teacher.name} />
+              <TextField id="outlined-basic" label="Last Name" variant="outlined" defaultValue={teacher.lastName} />
+              <TextField id="outlined-basic" label="Email" variant="outlined" defaultValue={teacher.email} />
+              <TextField id="outlined-basic" label="Phone" variant="outlined" defaultValue={teacher.phone} />
+              <TextField id="outlined-basic" label="Address" variant="outlined" defaultValue={teacher.address} />
+              <TextField id="outlined-basic" label="Age" variant="outlined" defaultValue={teacher.age} />
               <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
               <RadioGroup defaultValue="female" row>
                 <FormControlLabel value="female" control={<Radio />} label="Female" />
@@ -67,13 +67,13 @@ const StudentForm = ({ student, isEdit }) => {
           </Grid>
           <Grid item xs={6} sm={4} md={6} lg={8}>
             <Stack spacing={2}>
+              <FormLabel>Identification</FormLabel>
               <Select labelId="demo-simple-select-label" defaultValue="T.I" id="demo-simple-select" label="Type Document">
                 <MenuItem value="T.I">Passport</MenuItem>
                 <MenuItem value="I.C">Identification Card</MenuItem>
               </Select>
               <TextField id="outlined-basic" type="number" label="Number document" variant="outlined" />
-              <FormLabel id="demo-simple-select-label">Date of birth</FormLabel>
-              <TextField id="outlined-basic" type="date" variant="outlined" placeholder="YYMMAAA" />
+              <TextField id="outlined-basic" type="date" variant="outlined" />
             </Stack>
           </Grid>
         </Grid>
@@ -83,16 +83,12 @@ const StudentForm = ({ student, isEdit }) => {
         <Grid container spacing={3}>
           <Grid item xs={6} sm={4} md={6} lg={4}>
             <Typography variant="h5" fontWeight="bold">
-              Subjects
+              Teacher
             </Typography>
           </Grid>
           <Grid item xs={6} sm={4} md={6} lg={8}>
             <Stack spacing={2}>
-              <Select labelId="demo-simple-select-label" defaultValue="T.I" id="demo-simple-select" label="Type Document">
-                <MenuItem value="T.I">Software development</MenuItem>
-                <MenuItem value="I.C">Machine Learning</MenuItem>
-                <MenuItem value="I.C">Mathematics ||</MenuItem>
-              </Select>
+              <TextField id="outlined-basic" label="Code of teacher" variant="outlined" />
             </Stack>
           </Grid>
         </Grid>
@@ -106,7 +102,7 @@ const StudentForm = ({ student, isEdit }) => {
           </Grid>
 
           <Grid item>
-            <Button size="small" variant="outlined" component={Link} to="/students">
+            <Button size="small" variant="outlined" component={Link} to="/teachers">
               Cancel
             </Button>
           </Grid>
@@ -116,13 +112,13 @@ const StudentForm = ({ student, isEdit }) => {
   );
 };
 
-StudentForm.propTypes = {
-  student: PropTypes.object,
+TeacherForm.propTypes = {
+  teacher: PropTypes.object,
   isEdit: PropTypes.bool
 };
 
-StudentForm.defaultProps = {
-  student: Student
+TeacherForm.defaultProps = {
+  teacher: Teacher
 };
 
-export default StudentForm;
+export default TeacherForm;

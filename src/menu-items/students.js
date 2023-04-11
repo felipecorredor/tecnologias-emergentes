@@ -10,8 +10,8 @@ const icons = {
 // ==============================|| MENU ITEMS - UTILITIES ||============================== //
 
 const students = {
-  id: 'utilities',
-  title: 'Navigation',
+  id: 'students',
+  title: 'Students',
   type: 'group',
   children: [
     {
@@ -21,14 +21,14 @@ const students = {
       url: '/students',
       icon: icons.TeamOutlined,
       breadcrumbs: false
-    },
-    {
-      id: 'student',
-      title: 'Create',
-      type: 'item',
-      url: '/students/create',
-      icon: icons.UserAddOutlined
     }
+    // {
+    //   id: 'student',
+    //   title: 'Create',
+    //   type: 'item',
+    //   url: '/students/create',
+    //   icon: icons.UserAddOutlined
+    // }
   ]
 };
 

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Fragment, useState } from 'react';
 
 // mui-material
@@ -48,14 +49,13 @@ const UserActions = ({ studentId }) => {
           }
         }}
       >
-        <Link to={`edit/${studentId}`} style={{ textDecoration: 'none', color: 'black' }}>
-          <MenuItem onClick={handleClose} disableRipple>
-            <EditOutlined />
-            Edit
-          </MenuItem>
-        </Link>
+        <MenuItem onClick={handleClose} disableRipple component={Link} to={`/students/edit/${studentId}`}>
+          <EditOutlined style={{ marginRight: 10 }} />
+          Edit
+        </MenuItem>
+
         <MenuItem onClick={handleClose} disableRipple>
-          <DeleteOutlined />
+          <DeleteOutlined style={{ marginRight: 10 }} />
           Delete
         </MenuItem>
       </Menu>

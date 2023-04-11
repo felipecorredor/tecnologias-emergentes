@@ -6,7 +6,7 @@ import MainCard from 'components/MainCard';
 
 // ant-design/icons
 import { PlusOutlined } from '@ant-design/icons';
-import UserActions from './components/StudentActions';
+import UserActions from './components/TeacherActions';
 
 // react-router-dom
 import { Link } from 'react-router-dom';
@@ -16,23 +16,23 @@ function createData(document, name, lastName, address, age) {
 }
 
 const rows = [
-  createData(7890123456, 'Valentina', 'Sánchez Álvarez', 'Calle 23 # 45-67, Barrio El Poblado, Medellín', 31),
-  createData(8901234567, 'David', 'Ramírez Pérez', 'Carrera 14 # 9-87, Barrio La Paz, Bogotá', 26),
-  createData(9012345678, 'Sofía', 'Ortiz García', 'Avenida Circunvalar # 12-34, Conjunto Residencial Los Rosales, Cali', 39),
-  createData(3123456709, 'Luis', 'González Castro', 'Carrera 8 # 23-45, Barrio La Floresta, Barranquilla', 23),
-  createData(2345678901, 'Catalina', 'Rueda Gómez', 'Calle 60 # 12-34, Conjunto Residencial El Bosque, Cartagena', 42),
-  createData(3456789012, 'Diego', 'Mendoza Hernández', 'Carrera 50 # 30-45, Barrio Alameda, Bucaramanga', 28)
+  createData(1234567890, 'Juliana', 'Pérez Solís', 'Calle 10 # 25-16, Barrio San José, Bogotá', 32),
+  createData(2345678901, 'Luisa Fernández', 'Ortiz Cruz', 'Avenida 5 # 14-78, Conjunto Residencial Las Acacias, Medellín', 27),
+  createData(3456789012, 'Juan Carlos', 'Rodríguez Gómez', 'Carrera 7 # 14-20, Barrio La Candelaria, Cali', 41),
+  createData(4567890123, 'Martín', 'Hernández Torres', 'Calle 80 # 50-30, Conjunto Residencial Los Pinos, Barranquilla', 24),
+  createData(5678901234, 'Ana María', 'Gutiérrez López', 'Calle 100 # 15-40, Conjunto Residencial Los Alpes, Bucaramanga', 38),
+  createData(6789012345, 'Pablo', 'Castro Ramírez', 'Carrera 25 # 30-10, Barrio El Prado, Cartagena', 28)
 ];
 
-const Students = () => {
+const Teachers = () => {
   return (
     <Stack spacing={3}>
       <Grid container direction="row-reverse">
-        <Button size="small" variant="contained" component={Link} to="/students/create">
-          <PlusOutlined style={{ marginRight: 5 }} /> Add Student
+        <Button size="small" variant="contained" component={Link} to="/teachers/create">
+          <PlusOutlined style={{ marginRight: 5 }} /> Add Teacher
         </Button>
       </Grid>
-      <MainCard title="Students">
+      <MainCard title="Teachers">
         <Stack spacing={0.75} sx={{ mt: -1.5 }}>
           <Box sx={{ height: 'auto', width: '100%' }}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -55,9 +55,9 @@ const Students = () => {
                     <TableCell align="right">{row.name}</TableCell>
                     <TableCell align="right">{row.lastName}</TableCell>
                     <TableCell align="right">{row.address}</TableCell>
-                    <TableCell align="right">{row.age}</TableCell>
+                    <TableCell align="right">{`${row.age}`}</TableCell>
                     <TableCell align="right">
-                      <UserActions studentId={row.document} />
+                      <UserActions teacherId={row.document} />
                     </TableCell>
                   </TableRow>
                 ))}
@@ -70,4 +70,4 @@ const Students = () => {
   );
 };
 
-export default Students;
+export default Teachers;

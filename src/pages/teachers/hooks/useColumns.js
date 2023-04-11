@@ -1,4 +1,4 @@
-import UserActions from '../components/StudentActions';
+import UserActions from '../components/TeacherActions';
 
 const useColumns = () => {
   const columns = [
