@@ -28,8 +28,8 @@ const Subjects = () => {
   return (
     <Stack spacing={3}>
       <Grid container direction="row-reverse">
-        <Button size="small" variant="contained" component={Link} to="/subjects">
-          <PlusOutlined style={{ marginRight: 5 }} /> Add Student
+        <Button size="small" variant="contained" component={Link} to="/subjects/create">
+          <PlusOutlined style={{ marginRight: 5 }} /> Add Subject
         </Button>
       </Grid>
       <MainCard title="Subjects">
