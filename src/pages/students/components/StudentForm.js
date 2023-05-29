@@ -21,10 +21,6 @@ import MainCard from 'components/MainCard';
 // react-router-dom
 import { Link } from 'react-router-dom';
 
-const Student = {
-  name: ''
-};
-
 const StudentForm = ({ student, isEdit }) => {
   if (!student && isEdit) {
     return <LinearProgress />;
@@ -48,7 +44,7 @@ const StudentForm = ({ student, isEdit }) => {
               <TextField id="outlined-basic" label="Address" variant="outlined" defaultValue={student.address} />
               <TextField id="outlined-basic" label="Age" variant="outlined" defaultValue={student.age} />
               <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
-              <RadioGroup defaultValue="female" row>
+              <RadioGroup defaultValue={student.gender} row>
                 <FormControlLabel value="female" control={<Radio />} label="Female" />
                 <FormControlLabel value="male" control={<Radio />} label="Male" />
                 <FormControlLabel value="other" control={<Radio />} label="Other" />
@@ -67,13 +63,13 @@ const StudentForm = ({ student, isEdit }) => {
           </Grid>
           <Grid item xs={6} sm={4} md={6} lg={8}>
             <Stack spacing={2}>
-              <Select labelId="demo-simple-select-label" defaultValue="T.I" id="demo-simple-select" label="Type Document">
-                <MenuItem value="T.I">Passport</MenuItem>
-                <MenuItem value="I.C">Identification Card</MenuItem>
+              <Select labelId="demo-simple-select-label" defaultValue={student.typeDocument} id="demo-simple-select" label="Type Document">
+                <MenuItem value="passport">Passport</MenuItem>
+                <MenuItem value="identification_card">Identification Card</MenuItem>
               </Select>
-              <TextField id="outlined-basic" type="number" label="Number document" variant="outlined" />
+              <TextField id="outlined-basic" label="Number document" variant="outlined" defaultValue={student.numberDocument} />
               <FormLabel id="demo-simple-select-label">Date of birth</FormLabel>
-              <TextField id="outlined-basic" type="date" variant="outlined" placeholder="YYMMAAA" />
+              <TextField id="outlined-basic" type="date" variant="outlined" placeholder="YY/MM/AAA" defaultValue={student.dateBirth} />
             </Stack>
           </Grid>
         </Grid>
@@ -88,10 +84,10 @@ const StudentForm = ({ student, isEdit }) => {
           </Grid>
           <Grid item xs={6} sm={4} md={6} lg={8}>
             <Stack spacing={2}>
-              <Select labelId="demo-simple-select-label" defaultValue="T.I" id="demo-simple-select" label="Type Document">
-                <MenuItem value="T.I">Software development</MenuItem>
-                <MenuItem value="I.C">Machine Learning</MenuItem>
-                <MenuItem value="I.C">Mathematics ||</MenuItem>
+              <Select labelId="demo-simple-select-label" defaultValue={student.typeSubject} id="demo-simple-select" label="Type Document">
+                <MenuItem value="software_development">Software development</MenuItem>
+                <MenuItem value="machine_learning">Machine Learning</MenuItem>
+                <MenuItem value="mathematics">Mathematics ||</MenuItem>
               </Select>
             </Stack>
           </Grid>
@@ -121,8 +117,23 @@ StudentForm.propTypes = {
   isEdit: PropTypes.bool
 };
 
+const Student = {
+  name: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  address: '',
+  age: 0,
+  gender: 'male',
+  typeDocument: 'passport',
+  typeSubject: 'machine_learning',
+  numberDocument: '',
+  dateBirth: ''
+};
+
 StudentForm.defaultProps = {
-  student: Student
+  student: Student,
+  isEdit: false
 };
 
 export default StudentForm;

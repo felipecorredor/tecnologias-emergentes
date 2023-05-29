@@ -21,10 +21,6 @@ import MainCard from 'components/MainCard';
 // react-router-dom
 import { Link } from 'react-router-dom';
 
-const Teacher = {
-  name: ''
-};
-
 const TeacherForm = ({ teacher, isEdit }) => {
   if (!teacher && isEdit) {
     return <LinearProgress />;
@@ -48,7 +44,7 @@ const TeacherForm = ({ teacher, isEdit }) => {
               <TextField id="outlined-basic" label="Address" variant="outlined" defaultValue={teacher.address} />
               <TextField id="outlined-basic" label="Age" variant="outlined" defaultValue={teacher.age} />
               <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
-              <RadioGroup defaultValue="female" row>
+              <RadioGroup defaultValue={teacher.gender} row>
                 <FormControlLabel value="female" control={<Radio />} label="Female" />
                 <FormControlLabel value="male" control={<Radio />} label="Male" />
                 <FormControlLabel value="other" control={<Radio />} label="Other" />
@@ -68,12 +64,13 @@ const TeacherForm = ({ teacher, isEdit }) => {
           <Grid item xs={6} sm={4} md={6} lg={8}>
             <Stack spacing={2}>
               <FormLabel>Identification</FormLabel>
-              <Select labelId="demo-simple-select-label" defaultValue="T.I" id="demo-simple-select" label="Type Document">
-                <MenuItem value="T.I">Passport</MenuItem>
-                <MenuItem value="I.C">Identification Card</MenuItem>
+              <Select labelId="demo-simple-select-label" defaultValue={teacher.typeDocument} id="demo-simple-select" label="Type Document">
+                <MenuItem value="passport">Passport</MenuItem>
+                <MenuItem value="identification_card">Identification Card</MenuItem>
               </Select>
-              <TextField id="outlined-basic" type="number" label="Number document" variant="outlined" />
-              <TextField id="outlined-basic" type="date" variant="outlined" />
+              <TextField id="outlined-basic" label="Number document" variant="outlined" defaultValue={teacher.numberDocument} />
+              <FormLabel id="demo-simple-select-label">Date of birth</FormLabel>
+              <TextField id="outlined-basic" type="date" variant="outlined" placeholder="YY/MM/AAA" defaultValue={teacher.dateBirth} />
             </Stack>
           </Grid>
         </Grid>
@@ -88,10 +85,10 @@ const TeacherForm = ({ teacher, isEdit }) => {
           </Grid>
           <Grid item xs={6} sm={4} md={6} lg={8}>
             <Stack spacing={2}>
-              <Select labelId="demo-simple-select-label" defaultValue="T.I" id="demo-simple-select" label="Type Document">
-                <MenuItem value="T.I">Software development</MenuItem>
-                <MenuItem value="I.C">Machine Learning</MenuItem>
-                <MenuItem value="I.C">Mathematics ||</MenuItem>
+              <Select labelId="demo-simple-select-label" defaultValue={teacher.typeSubject} id="demo-simple-select" label="Type Document">
+                <MenuItem value="software_development">Software development</MenuItem>
+                <MenuItem value="machine_learning">Machine Learning</MenuItem>
+                <MenuItem value="mathematics">Mathematics ||</MenuItem>
               </Select>
             </Stack>
           </Grid>
@@ -107,7 +104,7 @@ const TeacherForm = ({ teacher, isEdit }) => {
           </Grid>
           <Grid item xs={6} sm={4} md={6} lg={8}>
             <Stack spacing={2}>
-              <TextField id="outlined-basic" label="Code of teacher" variant="outlined" />
+              <TextField id="outlined-basic" label="Code of teacher" variant="outlined" defaultValue={teacher.code} />
             </Stack>
           </Grid>
         </Grid>
@@ -134,6 +131,21 @@ const TeacherForm = ({ teacher, isEdit }) => {
 TeacherForm.propTypes = {
   teacher: PropTypes.object,
   isEdit: PropTypes.bool
+};
+
+const Teacher = {
+  name: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  address: '',
+  age: '',
+  gender: 'male',
+  typeDocument: 'passport',
+  typeSubject: 'machine_learning',
+  numberDocument: '',
+  dateBirth: '',
+  code: ''
 };
 
 TeacherForm.defaultProps = {
